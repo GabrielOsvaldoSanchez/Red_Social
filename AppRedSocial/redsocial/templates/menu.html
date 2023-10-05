@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/estilos.css' ) }}">
+</head>
+    <body>
+        <div id="barra">
+        <nav>
+            <ul id="arriba">
+                <li class="arri"><a class="ninguno" href="{{ url_for('conectarBase') }}">Registro de Usuarios</a></li>
+                <li class="arri"><a class="ninguno" href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+                <li class="arri"><a class="ninguno" href="{{ url_for('listar_publicaciones') }}">Comentarios</a></li>      
+                <!-- Otros enlaces de la barra de navegación aquí -->
+            </ul>
+        </nav>
+    </div>
+        <h1>Bienvenido a la Red Social Aserrí</h1>
+        <!-- Contenido del dashboard aquí -->
+        <div class="contenido">
+            <img class="imagenes" src="{{ url_for('static', filename='colegio1.jpg') }}" alt="Mi imagen">
+            <p class="texto">Aserrí, Salitrillos, barrio Palo Blanco</p>
+        </div>
+        <div class="contenido">
+            <img class="imagenes" src="{{ url_for('static', filename='colegio2.jpg') }}" alt="Mi imagen">
+            <ul class="texto">
+                <li>Desarrollo web</li>
+                <li>Logística</li>
+                <li>Diseño Gráfico</li>
+                <li>Electrónica</li>
+            </ul>
+        </div>
+    </body>
+</html>

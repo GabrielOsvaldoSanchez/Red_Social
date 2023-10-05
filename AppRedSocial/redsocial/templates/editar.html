@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/estilos.css' ) }}">s
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/svg+xml" href="/static/img/logo.jpg"> <!-- Logo en el título de la página-->
+    <title>Editar Usuarios</title>
+</head>
+<body>
+    <h1>Editar Usuario</h1>
+    <form action="" method="post">
+        <label>Código de Usuario: <input type="text" name="codigoU" value="{{ usuario[0] }}"></label></label><br>
+        <label>Cédula: <input type="text" name="cedula" value="{{ usuario[1] }}"></label></label><br>
+        <label>Nombre: <input type="text" name="nombre" value="{{ usuario[2] }}"></label></label><br>
+        <label>Usuario: <input type="text" name="usuario" value="{{ usuario[3] }}"></label></label><br>
+        <label>Clave: <input type="text" name="clave" value="{{ usuario[4] }}"></label></label><br>
+        <label>Primer Apellido: <input type="text" name="apellidoP" value="{{ usuario[5] }}"></label></label><br>
+        <label>Segundo Apellido: <input type="text" name="apellidoS" value="{{ usuario[6] }}"></label></label><br>
+        <label>Celular: <input type="text" name="celular" value="{{ usuario[7] }}"></label></label><br>
+        <label>Correo: <input type="text" name="correo" value="{{ usuario[8] }}"></label></label><br>
+        <label>Fecha de nacimiento: <input type="text" name="fecha_nacimiento" value="{{ usuario[9] }}"></label></label><br>
+        <label>Estado: <input type="text" name="estado" value="{{ usuario[10] }}"></label></label><br>
+        <label>Profesión: <input type="text" name="profesion" value="{{ usuario[11] }}"></label></label><br>
+        <label>Cantante: <input type="text" name="cantante" value="{{ usuario[12] }}"></label></label><br>
+        <label>Comida favorita: <input type="text" name="comida" value="{{ usuario[13] }}"></label></label><br>
+        <label>Deporte: <input type="text" name="deporte" value="{{ usuario[14] }}"></label></label><br>
+        <label>Signo del Zodiaco: <input type="text" name="signoZodiaco" value="{{ usuario[15] }}"></label></label><br>
+        <label>Pasatiempo: <input type="text" name="pasatiempo" value="{{ usuario[16] }}"></label></label><br>
+        <input type="submit" value="Guardar">
+    </form>
+    <a href="{{ url_for('conectarBase') }}">Volver</a>
+</body>
+</html>
+

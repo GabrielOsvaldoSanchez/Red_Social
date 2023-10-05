@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/estilos.css' ) }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/svg+xml" href="/static/img/logo.jpg"> <!-- Logo en el título de la página-->
+    <title>Registro de Usuarios</title>
+</head>
+<body>
+    <h1>Agregar Usuario</h1>
+    <form action="" method="post">
+        <label>Código de Usuario: <input type="text" name="codigoU"></label><br>
+        <label>Cédula: <input type="text" name="cedula"></label><br>
+        <label>Nombre: <input type="text" name="nombre"></label><br>
+        <label>Usuario: <input type="text" name="usuario"></label><br>
+        <label>Clave: <input type="text" name="clave"></label><br>
+        <label>Primer Apellido: <input type="text" name="apellidoP"></label><br>
+        <label>Segundo Apellido: <input type="text" name="apellidoS"></label><br>
+        <label>Celular: <input type="text" name="celular"></label><br>
+        <label>Correo: <input type="text" name="correo"></label><br>
+        <label>Fecha de nacimiento: <input type="text" name="fecha_nacimiento"></label><br>
+        <label>Estado: <input type="text" name="estado"></label><br>
+        <label>Profesión: <input type="text" name="profesion"></label><br>
+        <label>Cantante: <input type="text" name="cantante"></label><br>
+        <label>Comida favorita: <input type="text" name="comida"></label><br>
+        <label>Deporte: <input type="text" name="deporte"></label><br>
+        <label>Signo del Zodiaco: <input type="text" name="signoZodiaco"></label><br>
+        <label>Pasatiempo: <input type="text" name="pasatiempo"></label><br>
+        <input type="submit" value="Guardar">
+    </form>
+    <a href="{{ url_for('conectarBase') }}">Volver</a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/estilos.css' ) }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Contenido</title>
+</head>
+<body>
+    <li><a href="{{ url_for('menus') }}">Regresar</a></li>
+    <h1 >Subir Contenido</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="comentario">Comentario:</label>
+        <textarea name="comentario" id="comentario" rows="4" cols="50"></textarea>
+        <br>
+        <label for="archivo">Archivo (imagen, video o audio):</label>
+        <input type="file" name="archivo" accept="image/*, video/*, audio/*">
+        <br>
+        <input type="submit" value="Subir">
+    </form>
+    <br>
+    <h1>Contenido Subido</h1>
+    <ul>
+        {% for item in items[::-1] %}
+            <li>
+                <p>{{ item[1] }}</p> <!-- Comentario -->
+                {% if item[2] %}
+                    {% if item[3].startswith('image') %}
+                        <img class="imagen-comentarios" src="{{ url_for('get_media', item_id=item[0]) }}" alt="Imagen">
+                    {% elif item[3].startswith('video') %}
+                        <video controls>
+                            <source src="{{ url_for('get_media', item_id=item[0]) }}" type="{{ item[3] }}">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    {% elif item[3].startswith('audio') %}
+                        <audio controls>
+                            <source src="{{ url_for('get_media', item_id=item[0]) }}" type="{{ item[3] }}">
+                            Tu navegador no soporta la reproducción de audio.
+                        </audio>
+                    {% else %}
+                        <a href="{{ url_for('get_media', item_id=item[0]) }}" download>Descargar Archivo</a>
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    

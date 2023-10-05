@@ -1,0 +1,101 @@
+body{
+    background-image: url(fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+label{
+    color: white;
+}
+
+th{
+    border: 2px solid white
+}
+td{
+    border: 2px solid white;
+}
+nav{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+tr{
+    color: white;
+}
+.menut{
+        color: white;
+    }
+p{
+    color: white;
+}
+#inicio{
+    background-color: white;
+    width: 500px;
+    text-align: center;
+    margin-top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+}
+@media (max-width: 768px){
+    #inicio{
+        width: 350px;
+    }
+}
+.imagen-comentarios{
+    height: 200px;
+}
+#titulo-login{
+    color: black;
+}
+#boton1{
+    width: 150px;
+    font-size: 15px;
+}
+.letra{
+    font-size: 20px;
+    color: black;
+}
+#arriba{
+    list-style-type: none;
+    display: flex;
+}
+.arri{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+h1{
+    color: white;
+}
+.ninguno{
+    color: white;
+    text-decoration: none;
+}
+.imagenes{
+    height: 250px; 
+}
+.contenido{
+    margin-bottom: 30px;
+}
+.texto{
+    color: white;
+    font-size: 20px;
+}
+@media (min-width: 768px){
+    .contenido{
+        display: flex;
+        align-items: center;
+    }
+    .imagenes{
+        flex: 1;
+        margin-right: 20px;
+        height: 300px;
+    }
+    .texto{
+        margin-left: 500px;
+        flex: 2;
+    }
+}

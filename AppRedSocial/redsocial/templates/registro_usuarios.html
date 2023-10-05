@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/estilos.css' ) }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/svg+xml" href="/static/img/logo.jpg"> <!-- Logo en el título de la página-->
+    <title>Red Social Aserrí</title>
+</head>
+
+<body>
+    <h1>Listado de Usuarios</h1>
+    <table>
+        <tr>
+            <th>Código de Usuario</th>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            <th>Clave</th>
+            <th>Apellido</th>
+            <th>Apellido</th>
+            <th>Celular</th>
+            <th>Correo</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Estado Civil</th>
+            <th>Profesión u oficio</th>
+            <th>Cantante</th>
+            <th>Comida</th>
+            <th>Deporte</th>
+            <th>Signo Zodiacal</th>
+            <th>Pasatiempo</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td>{{ usuario[2] }}</td>
+            <td>{{ usuario[3] }}</td>
+            <td>{{ usuario[4] }}</td>
+            <td>{{ usuario[5] }}</td>
+            <td>{{ usuario[6] }}</td>
+            <td>{{ usuario[7] }}</td>
+            <td>{{ usuario[8] }}</td>
+            <td>{{ usuario[9] }}</td>
+            <td>{{ usuario[10] }}</td>
+            <td>{{ usuario[11] }}</td>
+            <td>{{ usuario[12] }}</td>
+            <td>{{ usuario[13] }}</td>
+            <td>{{ usuario[14] }}</td>
+            <td>{{ usuario[15] }}</td>
+            <td>{{ usuario[16] }}</td>
+
+            <td>
+                <form action="{{ url_for('editar_usuario', codigoU=usuario[0]) }}" method="get"
+                    style="display: inline-block;">
+                    <input type="submit" value="Editar"
+                        style="border:none; background:none; color:blue; text-decoration:underline; cursor:pointer;">
+                </form>
+            </td>
+            <td>
+                <form action="{{ url_for('eliminar_usuario', codigoU=usuario[0]) }}" method="post"
+                    style="display: inline-block;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Eliminar"
+                        style="border:none; background:none; color:red; text-decoration:underline; cursor:pointer;">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    <br>
+    <a href="{{ url_for('agregar_usuario') }}">Agregar usuario</a>
+    <br>
+
+    <h1>Listado de Usuarios por cédula o código de Usuario</h1>
+    <form action="{{ url_for('listar_usuario') }}" method="get">
+        <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .row {
+            display: flex;
+            flex-direction: row;
+          }
+          
+          .column {
+            flex:1;
+            border: 2px solid #1d10af;
+            padding: 10px;
+          }
+        </style>
+
+        <div class="container">
+            <div class="row">
+              <div class="column">
+                <label>Buscar por cédula:</label>
+                <input type="text" name="cedula">
+                <input type="submit" value="Buscar">
+              </div>
+              <div class="column">
+                <label>Buscar por código de Usuario:</label>
+                <input type="text" name="codigoU">
+                <input type="submit" value="Buscar">
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <ul>
+                    <label>Cédulas existentes:</label>
+                    {% for cedula_row in cedulas %}
+                    <li><a href="{{ url_for('listar_usuario', cedula=cedula_row[0]) }}">{{ cedula_row[0] }}</a></li>
+                    {% endfor %}
+                </ul>
+              </div>
+              <div class="column">                    
+                <ul>
+                    <label>Código de usarios existentes:</label>
+                    {% for codigoU_row in codigoU %}
+                    <li><a href="{{ url_for('listar_usuario', codigoU=codigoU_row[0]) }}">{{ codigoU_row[0] }}</a></li>
+                    {% endfor %}
+                </ul>
+                </div>
+            </div>
+          </div>
+    </form>
+    <li><a href="{{ url_for('menus') }}">Regresar</a></li>
+</body>
+
+</html>
